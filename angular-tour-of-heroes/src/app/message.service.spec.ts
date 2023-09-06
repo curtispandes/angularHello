@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
 
-import { MessageService } from './message.service';
+@Injectable({
+  providedIn: 'root',
+})
+export class MessageService {
+  messages: string[] = [];
 
-describe('MessageService', () => {
-  let service: MessageService;
+  add(message: string) {
+    this.messages.push(message);
+  }
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MessageService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  clear() {
+    this.messages = [];
+  }
+}
